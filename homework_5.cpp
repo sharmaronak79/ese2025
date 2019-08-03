@@ -1,57 +1,56 @@
-#include<iostream>
-#include<map>
-#include<fstream>
-#include<algorithm>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <map>
+#include <iterator>
 
 using namespace std;
 
-
-
 struct word_rec_t {
+	long int letter_count =0;
+	bool takis_found=0 ;
+	bool raj_found=0 ;
+	string word_itself ;
+    };
 
-    int letter_count; // the number of letters in the word
-
-    bool takis_found; // whether or not the substring "takis" is found in the word
-
-    bool raj_found; // whether or not the substring "raj" is found in the word
-
-    string word_itself; // the word string itself
-
-}
-
-map<string, word_rec_t>mydict;
-
-
-int main()
-{
- ofstream outfile;
-   outfile.open("words.txt");
-    
-
-    string search;
-ifstream inFile;
-string line;
-
-inFile.open("words.txt");
-
-if(!inFile){
-cout << "Unable to open file" << endl;
-exit(1);
-}
-cout << "Enter word to search for: ";
-cin >>search;
-
-
-size_t pos;
-while(inFile.good())
+int main() {
+long int i=0;
+string line ,str ;
+word_rec_t wordList;
+ifstream myfile ("words.txt");
+map < long int,string> mydict;
+map< long int,string>::iterator it ;
+if (myfile.is_open())
+ {
+  while (getline (myfile ,line ) )
   {
-      getline(inFile,line); // get line from file
-      pos=line.find(search); // search
-      if(pos!=string::npos) // string::npos is returned if string is not found
-        {
-            cout <<"Found!";
-            break;
-        }
+   mydict.insert(pair<long int ,string> (i ,line) );
+   i++ ;
+  }
+myfile.close() ;
+ }
+
+ else cout<< "Unable to open file " ;
+
+for ( it=mydict.begin() ; it != mydict.end() ; it++ )
+ {
+  if( it->second.find("takis") )
+  {
+	  wordList.takis_found=true;
+	  wordList.word_itself  = it ->second;
+	  wordList.letter_count = it ->first;
+	    }
+
+  else { wordList.takis_found=false ; }
+  //cout<< wordList.word_itself<<"-- is located at-- " << wordList.letter_count<< endl;
   }
 
+  if(wordList.takis_found)
+{ cout<< "word takis found"<<endl;
+  cout<< wordList.word_itself<<"-- is located at-- " << wordList.letter_count<< endl;
 }
+else cout<< "word takis not found"<<endl;
+
+return 0;
+
+ }
