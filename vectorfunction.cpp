@@ -11,7 +11,7 @@ int main()
     myvec.push_back(4); 
     myvec.push_back(1); 
     myvec.push_back(7); 
-    myvec.push_back(5); 
+    myvec.push_back(8); 
     // Vector becomes 3, 4, 1, 7, 3 
     cout<<"myvec = ";
      for(iter=myvec.begin();iter<myvec.end();++iter)
