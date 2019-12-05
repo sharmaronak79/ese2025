@@ -10,7 +10,7 @@
 using namespace std;
 
 int main() {
-	int a=100;
+	int a=110;
 	int *ptr1;
 
 	ptr1=&a;
