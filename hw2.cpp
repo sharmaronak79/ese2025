@@ -20,7 +20,7 @@ int main()
 {
     vector<int> myvec ;
     int token;
-    cout<< "Enter numbers for sorting. press <CTRL><D> to signal EoF"<<endl;
+    cout<< "Enter, numbers for sorting. press <CTRL><D> to signal EoF"<<endl;
     while(cin>>token)
     {
     myvec.push_back(token);
