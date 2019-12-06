@@ -45,7 +45,7 @@ int main()
 
 
 
- cout<<"enter 1 for addition \n enter 2 for subtraction\n enter 3 for multiplication\n enter 4 fordivision "<< endl;
+ cout<<"enter 1 for addition: \n enter 2 for subtraction:\n enter 3 for multiplication\n enter 4 fordivision "<< endl;
  cin >> op;
 
   switch (op){
